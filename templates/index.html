@@ -3,16 +3,7 @@
 <ul>
   {% for recipe in recipes %}
   <li>
-    {{ recipe.title }} - by {{ recipe.author.name }}
-    <ul>
-      <li>
-        <p>{{ recipe.description }}</p>
-        <br />
-        <p>{{ recipe.instructions }}</p>
-        <br>
-        <p>{{  recipe.time_required }}</p>
-      </li>
-    </ul>
+    <a href="/recipe/{{ recipe.id }}/">{{ recipe.title }}</a> - by {{ recipe.author.name }}
   </li>
   {% endfor %}
 </ul>

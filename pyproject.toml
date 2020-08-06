@@ -2,7 +2,7 @@
 name = "recipebox"
 version = "0.1.0"
 description = "Recipebox V1 Assessment"
-authors = ["Chris Warren <chris@chriswarren.dev>"]
+authors = ["Chris Warren"]
 license = "MIT"
 
 [tool.poetry.dependencies]
