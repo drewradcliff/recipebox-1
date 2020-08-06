@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from recipe.models import Recipe
+from recipe.models import Author, Recipe
 
 # Create your views here.
 def index(request):
