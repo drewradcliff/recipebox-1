@@ -24,7 +24,7 @@ ENV/
 *.code-workspace
 .history
 
-### IDEA ###
+### IntelliJ ###
 .gradle
 
 ### PyCharm ###
