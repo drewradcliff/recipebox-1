@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "recipebox"
 version = "0.1.0"
-description = "Recipebox V1 Assessment"
+description = "Recipebox Assessment"
 authors = ["Chris Warren"]
 license = "MIT"
 
