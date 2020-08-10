@@ -18,7 +18,7 @@ from django.urls import path
 from recipe.views import index, author_detail, recipe_detail, add_author, add_recipe
 
 urlpatterns = [
-    path('', index),
+    path('', index, name="home"),
     path('author/<int:author_id>/', author_detail),
     path('recipe/<int:recipe_id>/', recipe_detail),
     path('addauthor/', add_author, name='addauthor'),
