@@ -23,28 +23,15 @@ def recipe_detail(request, recipe_id):
 def add_recipe(request):
     if request.method == "POST":
         form = AddRecipeForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            Recipe.objects.create(
-                title=data.get("title"),
-                description=data.get("description"),
-                instructions=data.get("instructions"),
-                time_required=data.get("time_required"),
-                author=data.get("author"),
-            )
-            return HttpResponseRedirect(reverse("home"))
+        form.save()
+        return HttpResponseRedirect(reverse("home"))
     form = AddRecipeForm()
     return render(request, "generic_view.html", {"form": form})
 
 def add_author(request):
     if request.method == "POST":
         form = AddAuthorForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            Author.objects.create(
-                name=data.get("name"),
-                bio=data.get("bio")
-            )
-            return HttpResponseRedirect(reverse("home"))
+        form.save()
+        return HttpResponseRedirect(reverse("home"))
     form = AddAuthorForm()
     return render(request, "generic_view.html", {"form": form})
