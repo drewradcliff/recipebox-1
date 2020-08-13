@@ -1,5 +1,9 @@
 <h1>{{ recipe_box }}</h1>
 
+<!-- {% if request.user.is_authenticated %}
+  <h2>Hello, {{ request.user.author }}</h2>
+{% endif %} -->
+
 <ul>
   {% for recipe in recipes %}
   <li>
@@ -8,3 +12,9 @@
   {% endfor %}
 </ul>
 <a href="/addauthor/">Add an Author</a> | <a href="/addrecipe/">Add a Recipe</a>
+
+{% if request.user.is_authenticated %}
+<p>
+  <a href="/logout/"><button>Logout</button></a>
+</p>
+{% endif %}
