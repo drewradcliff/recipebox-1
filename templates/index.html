@@ -1,8 +1,8 @@
 <h1>{{ recipe_box }}</h1>
 
-<!-- {% if request.user.is_authenticated %}
-  <h2>Hello, {{ request.user.author }}</h2>
-{% endif %} -->
+{% if request.user.is_authenticated %}
+  <h2>Hi, {{ request.user.author.name }}!</h2>
+{% endif %}
 
 <ul>
   {% for recipe in recipes %}
