@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 # Create your models here.
 class Author(models.Model):
 
@@ -11,9 +10,6 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
-
-class Profile(models.Model):
-    pass
 
 
 class Recipe(models.Model):
