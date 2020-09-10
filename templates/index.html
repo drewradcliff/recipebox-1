@@ -1,7 +1,7 @@
 <h1>{{ recipe_box }}</h1>
 
 {% if request.user.is_authenticated %}
-  <h2>Hi, {{ request.user.author.name }}!</h2>
+  <h2>Hi, <a href="/author/{{ request.user.author.id }}"> {{ request.user.author.name }}!</h2></a>
 {% endif %}
 
 <ul>

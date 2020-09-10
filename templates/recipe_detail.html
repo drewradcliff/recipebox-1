@@ -8,5 +8,9 @@
         <p>{{ recipe.time_required }}</p>
         {% if request.user == recipe.author.user or request.user.is_staff %}
             <a href="/recipe/{{ recipe.id }}/edit/">Edit</a>
+            <br />  
+        {% endif %}
+        {% if request.user.is_authenticated %}
+            <a href="/recipe/{{ recipe.id }}/favorite/">Add to Favorites</a>
         {% endif %}
     {% endif %}

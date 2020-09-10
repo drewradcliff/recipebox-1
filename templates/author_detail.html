@@ -3,6 +3,7 @@
     {% else %}
         <h2>{{ author.name }}</h2>
         <p>{{ author.bio }}</p>
+        <a href="/author/{{ author.id }}/favorites/">Favorites</a>
         <h2>and has contributed to these recipes</h2>
         {% for recipe in recipes %}
         <h3><a href="/recipe/{{ recipe.id }}/">{{ recipe.title }}</a></h3>

@@ -5,7 +5,7 @@ from django.http import HttpResponseForbidden
 from django.shortcuts import HttpResponseRedirect, render, reverse
 
 from recipe.forms import AddAuthorForm, AddRecipeForm, LoginForm
-from recipe.models import Author, Recipe
+from recipe.models import Author, Recipe, Favorite
 
 
 # Create your views here.
@@ -48,6 +48,24 @@ def edit_recipe(request, recipe_id):
 
     form = AddRecipeForm(instance=recipe)
     return render(request, "generic_view.html", {"form": form})
+
+
+def favorite_view(request, author_id):
+    author = Author.objects.get(id=author_id)
+    favorites = Favorite.objects.filter(author=author)
+    return render(request, "favorites.html", {"favorites": favorites, "author": author.name})
+
+
+@login_required
+def add_favorite_recipe(request, recipe_id):
+    if Favorite.objects.filter(author=Author.objects.get(user=request.user), recipe=Recipe.objects.get(id=recipe_id)):
+        return HttpResponseRedirect(reverse("recipe", args=[recipe_id]))
+    else:
+        Favorite.objects.create(
+            author=Author.objects.get(user=request.user),
+            recipe=Recipe.objects.get(id=recipe_id),
+        )
+    return HttpResponseRedirect(reverse("recipe", args=[recipe_id]))
 
 
 @login_required
