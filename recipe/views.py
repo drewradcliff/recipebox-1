@@ -38,6 +38,19 @@ def add_recipe(request):
 
 
 @login_required
+def edit_recipe(request, recipe_id):
+    recipe = Recipe.objects.get(id=recipe_id)
+
+    if request.method == "POST":
+        form = AddRecipeForm(request.POST, instance=recipe)
+        form.save()
+        return HttpResponseRedirect(reverse("recipe", args=[recipe.id]))
+
+    form = AddRecipeForm(instance=recipe)
+    return render(request, "generic_view.html", {"form": form})
+
+
+@login_required
 def add_author(request):
     if request.user.is_staff:
         if request.method == "POST":

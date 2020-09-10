@@ -6,4 +6,7 @@
         <p>{{ recipe.description }}</p>
         <p>{{ recipe.instructions }}</p>
         <p>{{ recipe.time_required }}</p>
+        {% if request.user == recipe.author.user or request.user.is_staff %}
+            <a href="/recipe/{{ recipe.id }}/edit/">Edit</a>
+        {% endif %}
     {% endif %}
